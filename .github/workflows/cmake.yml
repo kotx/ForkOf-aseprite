@@ -17,10 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Bump Git Submodules
-      # You may pin to the exact commit or the version.
-      # uses: domdere/git-submodule-action@a09ad8c95cc59c167100b2ee37bc45015313cea7
-      uses: domdere/git-submodule-action@0.0.1
+    - name: Checkout Git Submodules
+      run: git submodule update --init --recursive
     
     - name: Install ninja-build tool
       # You may pin to the exact commit or the version.
