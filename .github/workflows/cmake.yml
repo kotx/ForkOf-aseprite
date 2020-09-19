@@ -19,6 +19,14 @@ jobs:
     
     - name: Checkout Git Submodules
       run: git submodule update --init --recursive
+      
+    - name: Install dependencies
+      # You may pin to the exact commit or the version.
+      # uses: ryankurte/action-apt@854f019356a19d5b1537e1e4496fe29a643189c2
+      uses: ryankurte/action-apt@v0.1.0
+      with:
+        # apt packages to install
+        packages: libpixman-1-dev libfreetype6-dev libharfbuzz-dev libx11-dev libxcursor-dev libxi-dev ninja-build
     
     - name: Install ninja-build tool
       # You may pin to the exact commit or the version.
@@ -52,10 +60,3 @@ jobs:
       shell: bash
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: ninja aseprite
-
-    - name: Test
-      working-directory: ${{runner.workspace}}/build
-      shell: bash
-      # Execute tests defined by the CMake configuration.  
-      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest -C $BUILD_TYPE
