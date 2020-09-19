@@ -66,4 +66,4 @@ jobs:
         name: aseprite # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
         path: bin/aseprite
-        if-no-files-found: fail
+        if-no-files-found: error
