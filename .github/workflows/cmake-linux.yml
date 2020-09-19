@@ -64,7 +64,6 @@ jobs:
       with:
         # Artifact name
         name: aseprite # optional, default is artifact
-        working-directory: ${{runner.workspace}}/build
         # A file, directory or wildcard pattern that describes what to upload
-        path: bin/aseprite
+        path: ${{runner.workspace}}/build/bin/aseprite
         if-no-files-found: error
