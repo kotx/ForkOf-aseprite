@@ -33,7 +33,7 @@ jobs:
         destination: ninja-build
       
     - name: Install Skia
-      run: wget "https://github.com/aseprite/skia/releases/download/m81-b607b32047/Skia-Linux-Release-x64.zip" && unzip Skia-Linux-Release-x64.zip -d $HOME/deps/skia
+      run: mkdir -p $HOME/deps/skia && wget "https://github.com/aseprite/skia/releases/download/m81-b607b32047/Skia-Linux-Release-x64.zip" && unzip Skia-Linux-Release-x64.zip -d $HOME/deps/skia
     
     - name: Checkout Git Submodules
       run: git submodule update --init --recursive
